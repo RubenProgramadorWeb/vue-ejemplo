@@ -87,6 +87,7 @@ const frases = [
     tema: 'madres',
   },
 ];
+
 </script>
 
 <template>
@@ -105,6 +106,49 @@ const frases = [
       <br>
       <h2>{{ frases[0].autor }}</h2>
       <cite>Frase: {{ frases[0].frase }}</cite>
+      <br><br>
+      <!-- ------------------------- -->
+      ejemplo1
+      <br><br>
+      <ul>
+        <li v-for="dato in frases">
+          <h2>{{ dato.autor }}</h2>
+          <cite>Frase: {{ dato.frase }}</cite>
+        </li>
+      </ul>
+      <!-- ------------------------------------------- -->
+      <br><br>
+      Ejemplo2
+      <ul>
+        <li v-for="{ frase: cita, autor, tema } in frases">
+          <h2>{{ autor }}</h2>
+          <cite>Frase: {{ cita }}</cite>
+        </li>
+      </ul>
+
+      <!-- ------------------------- -->
+      <br>
+      ejemplo3
+      <br><br>
+      <ul>
+        <li v-for="(dato, index) in frases">
+          <h2>({{ index + 1 }}){{ dato.autor }}</h2>
+          <cite>Frase: {{ dato.frase }}</cite>
+        </li>
+      </ul>
+      <!-- ------------------------- -->
+      <br>
+      ejemplo4
+      <br><br>
+      <ul>
+        <li v-for="({ frase: cita, autor, tema }, index) in frases">
+          <h2>({{ index + 1 }}){{ autor }}</h2>
+          <cite>Frase: {{ cita }}</cite>
+        </li>
+      </ul>
+      <!-- ------------------------------------- -->
+      <br> <br>
+      <div v-for="item in frases">{{ item['frase'] }}</div>
 </template>
 
 <style scoped></style>
